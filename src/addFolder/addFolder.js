@@ -24,7 +24,6 @@ export default class AddFolder extends React.Component {
     let name = this.state.name.value;
     ApiService.addFolder(name)
       .then(folder => {
-        console.log(folder)
         this.context.addFolder(folder);
       }).then(() => {
         this.props.history.push('/')
