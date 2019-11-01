@@ -15,10 +15,7 @@ export default class NoteListNav extends React.Component {
     ApiService.deleteFolder(id) 
     .then(() => {
       this.context.deleteFolder(id)
-      .then(() => {
-        this.props.history.push('/')
       })
-    })
     .catch(error => {
       this.context.setError(error)
     })

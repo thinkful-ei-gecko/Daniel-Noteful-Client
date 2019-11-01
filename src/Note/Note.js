@@ -5,6 +5,7 @@ import NotefulContext from '../NotefulContext'
 import ApiService from '../service/api-service'
 import './Note.css'
 
+
 export default class Note extends React.Component {
   static contextType = NotefulContext;
 
@@ -12,7 +13,6 @@ export default class Note extends React.Component {
     ApiService.deleteNote(id)
     .then(() => {
       this.context.deleteNote(id)
-      this.props.history.push('/')
       })
     .catch(error => {
       this.context.setError(error)
