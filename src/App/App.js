@@ -40,9 +40,8 @@ class App extends Component {
   }
 
   handleDeleteNote = noteId => {
-      console.log('deleting notes')
    const newNotes = this.state.notes.filter(note => note.id !== noteId);
-   this.setState({notes: [newNotes]});
+   this.setState({notes: newNotes});
   }
  
 
@@ -63,10 +62,9 @@ class App extends Component {
   };
 
   handleDeleteFolder = folderId => {
-    this.setState({
-      folders: this.state.folders.filter(folder => folder.id !== folderId)
-    });
-  };
+      const newFolders = this.state.folders.filter(folder => folder.id !== folderId);
+      this.setState({folders: newFolders})
+  }
 
   handleUpdateFolder = newFolder => {
     this.setState({
