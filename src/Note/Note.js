@@ -12,6 +12,9 @@ export default class Note extends React.Component {
     ApiService.deleteNote(id)
     .then(() => {
       this.context.deleteNote(id)
+      .then(() => {
+        this.props.history.push('/')
+      })
     })
     .catch(error => {
       this.context.setError(error)

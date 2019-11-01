@@ -23,7 +23,7 @@ export default class AddNote extends React.Component {
 			 .then(note => {
 					this.context.addNote(note)
 			 }).then(() => {
-         this.props.history.goBack();
+         this.props.history.push('/');
        })
 			 .catch(error => {
 					this.context.setError(error)
