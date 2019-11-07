@@ -2,17 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NotefulContext from '../NotefulContext'
+import {withRouter} from 'react-router-dom'
 import ApiService from '../service/api-service'
 import './Note.css'
 
 
-export default class Note extends React.Component {
+class Note extends React.Component {
   static contextType = NotefulContext;
 
   handleClickDelete(id) {
     ApiService.deleteNote(id)
     .then(() => {
       this.context.deleteNote(id)
+      this.props.history.push('/')
       })
     .catch(error => {
       this.context.setError(error)
@@ -42,3 +44,6 @@ export default class Note extends React.Component {
     )
   }
 }
+
+Note.contextType = NotefulContext
+export default withRouter(Note)
